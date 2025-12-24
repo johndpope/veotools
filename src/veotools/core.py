@@ -281,7 +281,7 @@ class ProgressTracker:
 class ModelConfig:
     """Configuration and capabilities for different Veo video generation models."""
 
-    DEFAULT_MODEL = "veo-3.0-fast-generate-preview"
+    DEFAULT_MODEL = "veo-3.0-generate-001"
 
     ALIASES = {
         "veo-3": "veo-3.0-generate-preview",

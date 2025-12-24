@@ -75,7 +75,7 @@ def _apply_default_person_generation(
 
 def generate_from_text(
     prompt: str,
-    model: str = "veo-3.0-fast-generate-preview",
+    model: str = "veo-3.0-generate-001",
     duration_seconds: Optional[int] = None,
     on_progress: Optional[Callable] = None,
     **kwargs,
@@ -388,7 +388,7 @@ def _generate_from_text_daydreams(
 def generate_from_image(
     image_path: Path,
     prompt: str,
-    model: str = "veo-3.0-fast-generate-preview",
+    model: str = "veo-3.0-generate-001",
     on_progress: Optional[Callable] = None,
     **kwargs,
 ) -> VideoResult:
@@ -513,7 +513,7 @@ def generate_from_video(
     video_path: Path,
     prompt: str,
     extract_at: float = -1.0,
-    model: str = "veo-3.0-fast-generate-preview",
+    model: str = "veo-3.0-generate-001",
     on_progress: Optional[Callable] = None,
     **kwargs,
 ) -> VideoResult:

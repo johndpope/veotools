@@ -96,7 +96,7 @@ class Bridge:
             self.workflow.add_step("add_media", {"path": str(media)})
         return self
     
-    def generate(self, prompt: str, model: str = "veo-3.0-fast-generate-preview", 
+    def generate(self, prompt: str, model: str = "veo-3.0-generate-001", 
                  **kwargs) -> 'Bridge':
         """Generate a video using text prompt and optional media input.
 
@@ -186,7 +186,7 @@ class Bridge:
         return self
     
     def generate_transition(self, prompt: Optional[str] = None, 
-                           model: str = "veo-3.0-fast-generate-preview") -> 'Bridge':
+                           model: str = "veo-3.0-generate-001") -> 'Bridge':
         """Generate a transition video between the last two media items.
 
         Creates a smooth transition video that bridges the gap between the two most
