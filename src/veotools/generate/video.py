@@ -188,7 +188,21 @@ def _generate_from_text_google(
             progress.complete("Complete")
             result.update_progress("Complete", 100)
         else:
-            raise RuntimeError("Video generation failed")
+            # Log detailed error info
+            error_msg = "Video generation failed"
+            if hasattr(operation, 'error') and operation.error:
+                error_msg = f"Video generation failed: {operation.error}"
+            elif hasattr(operation, 'response'):
+                # Check for filtered content or other issues
+                resp = operation.response
+                if hasattr(resp, 'prompt_feedback'):
+                    error_msg = f"Content filtered: {resp.prompt_feedback}"
+                elif hasattr(resp, 'block_reason'):
+                    error_msg = f"Blocked: {resp.block_reason}"
+                else:
+                    error_msg = f"Video generation failed - no videos returned. Response: {resp}"
+            logger.error(error_msg)
+            raise RuntimeError(error_msg)
 
     except Exception as exc:
         result.mark_failed(exc)

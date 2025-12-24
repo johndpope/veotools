@@ -394,12 +394,14 @@ class ModelConfig:
 
         if config.get("supports_aspect_ratio") and kwargs.get("aspect_ratio"):
             ar = str(kwargs["aspect_ratio"])
-            if normalized.startswith("veo-3.0"):
-                allowed = {"16:9"}
-            elif normalized.startswith("veo-2.0"):
+            # Google docs confirm Veo 3 supports both 16:9 and 9:16
+            # https://ai.google.dev/gemini-api/docs/video
+            if normalized.startswith("veo-3."):
+                allowed = {"16:9", "9:16"}
+            elif normalized.startswith("veo-2."):
                 allowed = {"16:9", "9:16"}
             else:
-                allowed = {"16:9"}
+                allowed = {"16:9", "9:16"}
             if ar not in allowed:
                 raise ValueError(
                     f"aspect_ratio '{ar}' not supported for model '{normalized}'. Allowed: {sorted(allowed)}"
