@@ -281,7 +281,7 @@ class ProgressTracker:
 class ModelConfig:
     """Configuration and capabilities for different Veo video generation models."""
 
-    DEFAULT_MODEL = "veo-3.0-generate-001"
+    DEFAULT_MODEL = "veo-3.1-generate-preview"
 
     ALIASES = {
         "veo-3": "veo-3.0-generate-preview",
@@ -294,6 +294,11 @@ class ModelConfig:
         "models/veo-3.0-fast-generate-preview": "veo-3.0-fast-generate-preview",
         "veo-3.0-generate-001": "veo-3.0-generate-001",
         "veo-3.0-fast-generate-001": "veo-3.0-fast-generate-001",
+        # Veo 3.1
+        "veo-3.1": "veo-3.1-generate-preview",
+        "google/veo-3.1": "veo-3.1-generate-preview",
+        "models/veo-3.1-generate-preview": "veo-3.1-generate-preview",
+        "veo-3.1-generate-preview": "veo-3.1-generate-preview",
     }
 
     DAYDREAMS_MODEL_IDS = {
@@ -301,6 +306,7 @@ class ModelConfig:
         "veo-3.0-fast-generate-preview": "google/veo-3-fast",
         "veo-3.0-generate-001": "google/veo-3",
         "veo-3.0-fast-generate-001": "google/veo-3-fast",
+        "veo-3.1-generate-preview": "google/veo-3.1",
     }
 
     DAYDREAMS_SLUGS = {
@@ -308,6 +314,7 @@ class ModelConfig:
         "veo-3.0-generate-001": "veo-3",
         "veo-3.0-fast-generate-preview": "veo-3-fast",
         "veo-3.0-fast-generate-001": "veo-3-fast",
+        "veo-3.1-generate-preview": "veo-3.1",
     }
 
     MODELS = {
@@ -340,6 +347,36 @@ class ModelConfig:
             "supports_audio": False,
             "default_duration": 5,
             "generation_time": 180,
+        },
+        "veo-3.0-generate-001": {
+            "name": "Veo 3.0 Stable",
+            "supports_duration": False,
+            "supports_enhance": False,
+            "supports_fps": False,
+            "supports_aspect_ratio": True,
+            "supports_audio": True,
+            "default_duration": 8,
+            "generation_time": 120,
+        },
+        "veo-3.0-fast-generate-001": {
+            "name": "Veo 3.0 Fast Stable",
+            "supports_duration": False,
+            "supports_enhance": False,
+            "supports_fps": False,
+            "supports_aspect_ratio": True,
+            "supports_audio": True,
+            "default_duration": 8,
+            "generation_time": 60,
+        },
+        "veo-3.1-generate-preview": {
+            "name": "Veo 3.1",
+            "supports_duration": False,
+            "supports_enhance": False,
+            "supports_fps": False,
+            "supports_aspect_ratio": True,
+            "supports_audio": True,
+            "default_duration": 8,
+            "generation_time": 120,
         },
     }
 

@@ -106,7 +106,7 @@ def _default_prompt_builder(clip: Clip) -> str:
 def execute_scene_plan(
     plan: ScenePlan | Path | str | Dict[str, object],
     *,
-    model: str = "veo-3.0-generate-001",
+    model: str = "veo-3.1-generate-preview",
     prompt_builder: Optional[PromptBuilder] = None,
     image_provider: Optional[ImageProvider] = None,
     clip_options: Optional[ClipOptionsProvider] = None,

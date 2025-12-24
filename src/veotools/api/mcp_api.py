@@ -684,18 +684,18 @@ def _run_generation(job_id: str) -> None:
         result_dict: Dict[str, Any]
 
         if record.kind == "text":
-            res = generate_from_text(prompt, model=model or "veo-3.0-generate-001", on_progress=_on_progress, **options)
+            res = generate_from_text(prompt, model=model or "veo-3.1-generate-preview", on_progress=_on_progress, **options)
             result_dict = res.to_dict()
             remote_op_id = res.operation_id
         elif record.kind == "image":
             img_path = Path(record.params["input_image_path"])  # validated earlier
-            res = generate_from_image(img_path, prompt, model=model or "veo-3.0-generate-001", on_progress=_on_progress, **options)
+            res = generate_from_image(img_path, prompt, model=model or "veo-3.1-generate-preview", on_progress=_on_progress, **options)
             result_dict = res.to_dict()
             remote_op_id = res.operation_id
         else:  # video
             vid_path = Path(record.params["input_video_path"])  # validated earlier
             extract_at = record.params.get("extract_at", -1.0)
-            res = generate_from_video(vid_path, prompt, extract_at=extract_at, model=model or "veo-3.0-generate-001", on_progress=_on_progress, **options)
+            res = generate_from_video(vid_path, prompt, extract_at=extract_at, model=model or "veo-3.1-generate-preview", on_progress=_on_progress, **options)
             result_dict = res.to_dict()
             remote_op_id = res.operation_id
 

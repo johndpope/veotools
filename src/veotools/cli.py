@@ -153,7 +153,7 @@ def cmd_plan_execute(ns: argparse.Namespace) -> int:
 
     result = veo.execute_scene_plan(
         ns.plan,
-        model=ns.model or "veo-3.0-generate-001",
+        model=ns.model or "veo-3.1-generate-preview",
         stitch=not ns.no_stitch,
         overlap=ns.overlap,
         auto_seed_last_frame=ns.seed_last_frame,
@@ -200,7 +200,7 @@ def cmd_plan_run(ns: argparse.Namespace) -> int:
 
     exec_result = veo.execute_scene_plan(
         plan,
-        model=ns.execute_model or "veo-3.0-generate-001",
+        model=ns.execute_model or "veo-3.1-generate-preview",
         stitch=not ns.no_stitch,
         overlap=ns.overlap,
         auto_seed_last_frame=ns.seed_last_frame,

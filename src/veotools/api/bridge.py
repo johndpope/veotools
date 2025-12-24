@@ -96,7 +96,7 @@ class Bridge:
             self.workflow.add_step("add_media", {"path": str(media)})
         return self
     
-    def generate(self, prompt: str, model: str = "veo-3.0-generate-001", 
+    def generate(self, prompt: str, model: str = "veo-3.1-generate-preview",
                  **kwargs) -> 'Bridge':
         """Generate a video using text prompt and optional media input.
 
@@ -108,7 +108,7 @@ class Bridge:
 
         Args:
             prompt: Text description for video generation.
-            model: Veo model to use. Defaults to "veo-3.0-fast-generate-preview".
+            model: Veo model to use. Defaults to "veo-3.1-generate-preview".
             **kwargs: Additional generation parameters including:
                 - extract_at: Time offset for video continuation (float)
                 - duration_seconds: Video duration (int)
@@ -185,8 +185,8 @@ class Bridge:
         
         return self
     
-    def generate_transition(self, prompt: Optional[str] = None, 
-                           model: str = "veo-3.0-generate-001") -> 'Bridge':
+    def generate_transition(self, prompt: Optional[str] = None,
+                           model: str = "veo-3.1-generate-preview") -> 'Bridge':
         """Generate a transition video between the last two media items.
 
         Creates a smooth transition video that bridges the gap between the two most
@@ -196,7 +196,7 @@ class Bridge:
         Args:
             prompt: Description of the desired transition. If None, uses a default
                 "smooth cinematic transition between scenes".
-            model: Veo model to use. Defaults to "veo-3.0-fast-generate-preview".
+            model: Veo model to use. Defaults to "veo-3.1-generate-preview".
 
         Returns:
             Bridge: Self for method chaining.
